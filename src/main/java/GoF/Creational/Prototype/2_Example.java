@@ -3,7 +3,13 @@ package GoF.Creational.Prototype;
 import java.util.Hashtable;
 
 /**
- * https://www.tutorialspoint.com/design_pattern/prototype_pattern.htm
+ * The shape in the following example is cloneable. It implies that it can be copied.
+ * Hence the prototype pattern allow us to create an object based on the protoype of the
+ * shape we already have.
+ * 
+ * The advantage being if the shape in the following example has to be quierried from
+ * a databse, adding a copy method allows it to be easily replicated without having to
+ * call it everytime from the database, which saves us a costly operation.
  */
 
 abstract class Shape implements Cloneable {
