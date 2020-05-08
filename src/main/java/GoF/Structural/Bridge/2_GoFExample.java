@@ -8,6 +8,7 @@ package GoF.Structural.Bridge;
  * might use, such as application windows, icons, transient windows for dialogs,
  * floating palettes of tools, and so on.
  * 
+ * The AppleWindowImp is an example of a system dependent window implementation.
  * 
  */
 class View {
@@ -156,4 +157,9 @@ class ApplicationWindow extends Window
     @Override
 	void DrawText(char c, Point p) {
 
-	}
+    }
+}
+
+class AppleWindowImp extends WindowImp {
+ 
+}

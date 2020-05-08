@@ -19,6 +19,9 @@ package GoF.Structural.Bridge;
  * exactly the pattern I used in 4Polar software, where I give the Views
  * (implementation) to ViewModels.)
  * 
+ * Note that the implementation usually consists of primitive (simple) operations,
+ * where as abstraction forms more complicated options using the primitive type.
+ * 
  * Applicability:
  * 
  * 1- Use when you want to decouple an abstraction from it's implementation
