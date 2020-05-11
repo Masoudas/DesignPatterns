@@ -19,6 +19,10 @@ package GoF.Structural.Bridge;
  * exactly the pattern I used in 4Polar software, where I give the Views
  * (implementation) to ViewModels.)
  * 
+ * (Me: A very interesting example could be implementing a class of primitive operations
+ * like sines and cosines, etc, and an abstraction would be computation of very
+ * complicated mathematical formulas).
+ * 
  * Note that the implementation usually consists of primitive (simple) operations,
  * where as abstraction forms more complicated options using the primitive type.
  * 
