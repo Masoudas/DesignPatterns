@@ -45,13 +45,56 @@ package GoF.Structural.Proxy;
  * counting the number of references to the real object so that it can be freed
  * automatically when there are no more references (also called smart pointers
  * [Ede92]). 2- loading a persistent object into memory when it's first
- * referenced. 3- checking that the real object is locked before it's accessed to
- * ensure that no other object can change it.
+ * referenced. 3- checking that the real object is locked before it's accessed
+ * to ensure that no other object can change it.
  * 
  * Structure:
  * 
- * Structure is given in 1_Structure.png. Note that Subject is the interface which the client
- * deals with. RealSubject is a realization of it. Proxy shields the RealSubject.
+ * Structure is given in 1_Structure.png. Note that Subject is the interface
+ * which the client deals with. RealSubject is a realization of it. Proxy
+ * shields the RealSubject.
  * 
+ * Participants:
  * 
+ * Proxy: 1- maintains a reference that lets the proxy access the real subject.
+ * Proxy may refer to a Subject if the RealSubject and Subject interfaces are
+ * the same. 2- provides an interface identical to Subject's so that a proxy can
+ * by substituted for the real subject. 3- controls access to the real subject
+ * and may be responsible for creating and deleting it. 4- other
+ * responsibilities depend on the kind of proxy: § remote proxies are
+ * responsible for encoding a request and its arguments and for sending the
+ * encoded request to the real subject in a different address space. § virtual
+ * proxies may cache additional information about the real subject so that they
+ * can postpone accessing it. For example, the ImageProxy from the Motivation
+ * caches the real image's extent. § protection proxies check that the caller
+ * has the access permissions required to perform a request.
+ * 
+ * Subject: Defines the common interface for RealSubject and Proxy so that a
+ * Proxy can be used anywhere a RealSubject is expected.
+ * 
+ * RealSubject: defines the real object that the proxy represents.
+ * 
+ * Collaborations:
+ * 
+ * The proxy sends the request to subject whenever it's appropriate.
+ * 
+ * Consequences: The indirect access provided by the proxy has many uses. 1. A
+ * remote proxy can hide the fact that an object resides in a different address
+ * space. 2. A virtual proxy can perform optimizations such as creating an
+ * object on demand. 3. Both protection proxies and smart references allow
+ * additional housekeeping tasks when an object is accessed.
+ * 
+ * (Me according to GoF: If an expensive object is copied, but never modified,
+ * the proxy can keep a safe copy somewhere and only represent that to every
+ * one.)
+ * 
+ * Implementation:
+ * 
+ * In C++, we can overload the operator -> to work with the proxy rather than
+ * the actual subject. But in general, we tend to use an actual class (Me: and
+ * say we have a builder, factory or the kind, we can actually return the proxy
+ * interface rather than the actual one.)
+ * 
+ * Note also that a proxy does not have to refer to a concrete implementation of
+ * a class. It may use an interface for a class.
  */
